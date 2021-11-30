@@ -7,18 +7,23 @@ import { v4 as uuid4 }  from "uuid";
 module.exports = router;
 
 router.get("/", function (req, res) {
-  res.sendFile(path.join(__dirname, "../views/index.html"));
+  // res.sendFile(path.join(__dirname, "../views/index.hbs"));
+  let tasks = fs.readFileSync("./task.json");
+  tasks = JSON.parse(tasks);
+  res.render('home', {
+    tasks: tasks.tasks
+  })
 
   //res.sendFile("index.html");
 
   //const task = tareas.find().lean();
   //res.render("index", { tareas: task });
 });
-//router.get("/tarea/:id/actualizar", (req, res) => {
-//res.sendFile(path.join(__dirname, "../views/actualizar.html"));
-// const task = tareas.findById(req.params.id).lean();
-// res.render("actualizar", { task });
-//});
+router.get(`/tarea/:id/actualizar`, (req, res) => {
+res.sendFile(path.join(__dirname, "../views/actualizar.hbs"));
+// let task =  
+// res.render("actualizar.html", { task });
+});
 //router.post("/tarea/:id/", (req, res) => {
 //res.sendFile(path.join(__dirname, "../views/actualizar.html"));
 // const { id } = req.params;

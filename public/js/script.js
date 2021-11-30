@@ -67,9 +67,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const btnActualizar = document.createElement("a");
       btnActualizar.classList.add("btn-danger");
       btnActualizar.innerHTML = "Editar";
-      btnActualizar.href = "actualizar";
+      btnActualizar.href = `/tarea/:id/actualizar`;
       btnActualizar.onclick = (e) => {
-        e.target("/tarea/:id/actualizar");
+        e.target("/actualizar");
       };
 
       const checkbox = document.createElement("input");

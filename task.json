@@ -1,34 +1,3 @@
 {
-  "tasks": [
-    { "tarea": "Ok" },
-    { "tarea": { "tarea": "sadas" } },
-    { "tarea": { "tarea": "ALo" } },
-    { "tarea": { "tarea": "Abor" } },
-    {
-      "id": "34cf995c-7682-441c-98fc-00ffe14a8e78",
-      "tarea": { "tarea": "Tarea" }
-    },
-    {
-      "id": "7e9a56c3-a182-4d26-8fa3-5bfde3ad4cb7",
-      "tarea": { "tarea": "Uu" }
-    },
-    {
-      "id": "3f9bdf03-8760-4b86-bed6-8c1a21faff8b",
-      "tarea": { "tarea": "Ok" }
-    },
-    {
-      "id": "59e16e68-9fd5-40b8-b4b2-aac29af55ce0",
-      "tarea": { "tarea": "Testin" }
-    },
-    {
-      "id": "486137be-684b-4f85-83b7-90b028d5064b",
-      "tarea": { "tarea": "WWW" }
-    },
-    {
-      "id": "dba15180-8de1-4d68-bb3f-c16c96ff397d",
-      "tarea": { "tarea": "lISTA" }
-    },
-    { "id": "70e2dcc1-3190-4d47-9ea3-fd8b298193b4" },
-    { "id": "90f5e6d2-e62a-4c9e-ad79-b6a12e309d5a", "tarea": { "tarea": "oK" } }
-  ]
+    "tasks": []
 }

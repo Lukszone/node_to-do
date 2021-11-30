@@ -1,0 +1,25 @@
+
+<div class="bg-dark text-info" id="super-contender">
+  <h1>To do</h1>
+</div>
+<div class="p-4 rounded-0 bg-dark text-white" id="list-contender">
+  <h2>Lista</h2>
+  <label for="inputNuevaTarea">Agregar nueva tarea: </label>
+  <input
+    type="text"
+    id="inputNuevaTarea"
+    placeholder="Escribe una Tarea"
+    class="rounded-0 bg-black text-white"
+  />
+  <button id="btnAgregarTarea" class="btn btn-info justify-content-md-end">
+    Ok
+  </button>
+  <ul id="contenedorTareas" class="list-group">
+    {{#each tasks}}
+      <li class="mb-2">
+        <span>{{this.tarea}}</span>
+      </li>
+    {{/each}}
+  </ul>
+</div>
+<script src="/js/script.js"></script>
