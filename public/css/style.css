@@ -1,0 +1,39 @@
+body{
+  background: #212529;
+}
+#super-contender{
+  text-align: center;
+}
+#list-contender{
+  margin: 3em;
+}
+#btnAgregarTarea{
+  padding: 1px 2px;
+}
+
+li {
+  list-style: none;
+  margin-bottom: 5px;
+}
+span{
+  margin-left: 5px;
+}
+a.btn-info {
+  padding: 1px 4px;
+  margin-left: 10px;
+  text-decoration: none;
+  font-size: 1em;
+  border: solid 1px #000;
+}
+a.btn-danger{
+  padding: 1px;
+  margin-left: 10px;
+  text-decoration: none;
+  font-size: 1em;
+  border:solid 1px #000 ;
+}
+
+.tachado {
+  text-decoration: line-through;
+}
+
