@@ -1,13 +1,17 @@
-<div class="p-4 rounded-0 bg-dark text-white" id="list-contender">
+<div class="p-4 rounded-0 bg-dark text-white"
+ id="list-contender">
   <h2>Lista</h2>
-  <form action="/tarea_nueva" method="POST">
-    <label for="inputNuevaTarea">Agregar nueva tarea: </label>
+  <form action="/" method="POST">
+    <label for="tarea">Agregar nueva tarea: </label>
     <input
       type="text"
       name="tarea"
-      id="inputNuevaTarea"
+      id="tarea"
       placeholder="Escribe una Tarea"
       class="rounded-0 bg-black text-white"
+      required=""
+      minlength="1"
+      maxlength="500"
     />
     <button
       id="btnAgregarTarea"
@@ -16,15 +20,31 @@
     >
       Ok
     </button>
+    {{#if tasks}}
   </form>
-  <ul id="contenedorTareas" class="list-group">
+  <ul 
+    id="contenedorTareas"
+    class="list-group">
     {{#each tasks}}
       <li class="mb-2">
+        <input
+          type="checkbox"
+          class="form-check-input"/>
         <span>{{tarea}}</span>
-        <a href="/actualizar/{{id}}">x</a>
-        <a href="/actualizar/{{@index}}">Editar</a>
+        <a
+          href="/actualizar/{{id}}" 
+          class="btn-info">x</a>
+        <a 
+        href="/actualizar/{{@index}}"
+        class="btn-danger">Editar</a>
       </li>
     {{/each}}
   </ul>
 </div>
-<script src="/js/script.js"></script>
+{{else}}
+  <div class="h-50 d-flex aling-items-center justify-content-center">
+    <div class="text-center text-white">
+      <h1>No hay tareas</h1>
+    </div>
+  </div>
+{{/if}}
