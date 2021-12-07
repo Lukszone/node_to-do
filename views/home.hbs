@@ -1,7 +1,3 @@
-
-<div class="bg-dark text-info" id="super-contender">
-  <h1>To do</h1>
-</div>
 <div class="p-4 rounded-0 bg-dark text-white" id="list-contender">
   <h2>Lista</h2>
   <form action="/tarea_nueva" method="POST">
@@ -13,14 +9,20 @@
       placeholder="Escribe una Tarea"
       class="rounded-0 bg-black text-white"
     />
-    <button id="btnAgregarTarea" type="submit" class="btn btn-info justify-content-md-end">
+    <button
+      id="btnAgregarTarea"
+      type="submit"
+      class="btn btn-info justify-content-md-end"
+    >
       Ok
     </button>
   </form>
   <ul id="contenedorTareas" class="list-group">
     {{#each tasks}}
       <li class="mb-2">
-        <span>{{this.tarea}}</span>
+        <span>{{tarea}}</span>
+        <a href="/actualizar/{{id}}">x</a>
+        <a href="/actualizar/{{@index}}">Editar</a>
       </li>
     {{/each}}
   </ul>
