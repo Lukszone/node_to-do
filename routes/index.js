@@ -3,8 +3,9 @@ const router = express.Router();
 import * as fs from "fs";
 import { v4 as uuid4 } from "uuid";
 
-router.get("/", async (req, res) => {
-  let tasks = fs.readFileSync("./task.json");
+router.get("/", async (req, res)=>{
+  let tasks = 
+  fs.readFileSync("./task.json");
   tasks = await JSON.parse(tasks);
 
   res.render("home", {
@@ -12,31 +13,40 @@ router.get("/", async (req, res) => {
   });
 });
 
-router.post("/", async (req, res) => {
+router.post("/", async (req, res)=>{
   try {
     var tarea = req.body.tarea;
-    let tasks = fs.readFileSync("./task.json");
+    let tasks =
+     fs.readFileSync("./task.json");
     tasks = JSON.parse(tasks);
 
-    await tasks.tasks.push({ id: uuid4(), tarea: tarea, done: false });
+    await tasks.tasks.push(
+      { id: uuid4(),
+        tarea: tarea,
+        done: false 
+      });
 
-    fs.writeFileSync("./task.json", JSON.stringify(tasks));
+    fs.writeFileSync("./task.json",
+    JSON.stringify(tasks));
 
     res.render("home", {
       tasks: tasks.tasks,
     });
-  } catch (e) {
+  }catch (e) {
     console.log(e);
-    res.json({ message: "error" });
+    res.json(
+      { message: "error" }
+    );
   }
 });
 
-router.get("/actualizar/:id", async (req, res) => {
+router.get("/actualizar/:id",async (req, res) => {
   let { id } = req.params;
   let tasks = fs.readFileSync("./task.json");
   tasks = await JSON.parse(tasks);
 
-  let [task] = tasks.tasks.filter((task) => task.id === id);
+  let [task] = tasks.tasks.filter(
+    (task) => task.id === id);
   if (!task) {
     res.redirect("/");
   }
@@ -62,7 +72,9 @@ router.post("/actualizar/:id", async (req, res) => {
     return task;
   });
 
-  fs.writeFileSync("./task.json", JSON.stringify({ tasks }));
+  fs.writeFileSync("./task.json", JSON.stringify(
+    { tasks }
+  ));
 
   res.redirect("/");
 });
@@ -74,19 +86,21 @@ router.get("/eliminar/:index", async (req, res) => {
   tasks = JSON.parse(tasks);
 
   let taskDelete = {
-    tasks: [...tasks.tasks.slice(0, index), ...tasks.tasks.slice(index + 1)],
+    tasks: 
+    [...tasks.tasks.slice(0, index),
+    ...tasks.tasks.slice(index + 1)],
   };
-  fs.writeFileSync("./task.json", JSON.stringify(taskDelete));
+  fs.writeFileSync("./task.json",
+  JSON.stringify(taskDelete));
   res.redirect("/");
 });
 
-router.post("/terminada/:id/false", async (req, res) => {
-  //let { done } = req.params;
+router.post("/terminada/:id/false", async (req, res)=>{
   let { id } = req.params;
   let tasks = fs.readFileSync("./task.json");
   tasks = JSON.parse(tasks);
 
-  let mod_tasks = await tasks.tasks.map((task) => {
+  let mod_tasks = await tasks.tasks.map((task) =>{
     if (task.id == id) {
       return {
         ...task,
@@ -95,12 +109,15 @@ router.post("/terminada/:id/false", async (req, res) => {
     }
     return task;
   });
-  fs.writeFileSync("./task.json", JSON.stringify({ tasks: mod_tasks }));
+  fs.writeFileSync("./task.json",
+  JSON.stringify(
+    { tasks: mod_tasks }
+  ));
   res.redirect("/");  
 });
 
-router.post("/terminada/:id/true", async (req, res) => {
-  //let { done } = req.params;
+router.post("/terminada/:id/true",
+async (req, res) => {
   let { id } = req.params;
   let tasks = fs.readFileSync("./task.json");
   tasks = JSON.parse(tasks);
@@ -114,7 +131,10 @@ router.post("/terminada/:id/true", async (req, res) => {
     }
     return task;
   });
-  fs.writeFileSync("./task.json", JSON.stringify({ tasks: mod_tasks }));
+  fs.writeFileSync("./task.json",
+  JSON.stringify(
+    { tasks: mod_tasks }
+  ));
   res.redirect("/");  
 });
 

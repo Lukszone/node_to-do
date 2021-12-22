@@ -39,24 +39,25 @@
             {{/if}}
           >
             {{tarea}}
-          </span>
-          <form action='/terminada/{{id}}/{{done}}' method="post"  class="form_done">  
-            <button type="submit" class="btn-submit">
-              
-              <i class="fas fa-{{#if done}}check{{else}}times{{/if}}"></i>
-             
-              
-            </button>
-          </form>
-          <a 
-            href="/actualizar/{{id}}"
-            class="btn-actualizar"><i class="fas fa-pen"></i>
-          </a>
-          <a
-            href="/eliminar/{{@index}}" 
-            class="btn-eliminar"
-          >
-            <i class="fas fa-trash"></i>
+        </span>
+        <form 
+          action='/terminada/{{id}}/{{done}}'
+          method="post"  class="form_done">  
+          <button type="submit" class="btn-submit">    
+            <i class="fas fa-{{#if done}}check{{else}}times{{/if}}"></i>
+          </button>
+        </form>
+        <a 
+          href="/actualizar/{{id}}"
+          class="btn-actualizar"
+        >
+          <i class="fas fa-pen"></i>
+        </a>
+        <a
+          href="/eliminar/{{@index}}" 
+          class="btn-eliminar"
+        >
+          <i class="fas fa-trash"></i>
         </a>  
       </li>
     {{/each}}

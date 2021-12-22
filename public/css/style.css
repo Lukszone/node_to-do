@@ -14,7 +14,7 @@ label {
   font-weight: 500;
   font-size: 17px;
 }
-input{
+input {
   margin: 1px;
   padding: 1px;
 }
@@ -30,7 +30,8 @@ li {
   list-style: none;
   margin-bottom: 5px;
   display: grid;
-  grid-template-columns: 1fr 30px 30px 30px;
+  grid-template-columns: 
+              1fr 30px 30px 30px;
   background-color: #313131;
 }
 span {
@@ -39,7 +40,6 @@ span {
   margin-left: 2px;
 }
 a.btn-eliminar {
-  
   padding: 5px;
   margin: 5px;
   background: transparent;
@@ -52,7 +52,7 @@ a.btn-eliminar {
 a.btn-actualizar {
   padding: 5px;
   margin: 5px;
-  background:  transparent;
+  background: transparent;
   border: none;
   color: #00cc00;
 }
@@ -69,4 +69,3 @@ a.btn-actualizar {
 .btn-submit:hover {
   color: #00a8e6;
 }
-
