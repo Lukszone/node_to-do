@@ -1,8 +1,11 @@
-<div class="p-4 rounded-0 bg-dark text-white"
- id="list-contender">
+<div 
+  class="p-4 rounded-0 bg-dark text-white"
+  id="list-contender">
   <h2>Lista</h2>
   <form action="/" method="POST">
-    <label for="tarea">Agregar nueva tarea: </label>
+    <label 
+      for="tarea">Agregar nueva tarea: 
+    </label>
     <input
       type="text"
       name="tarea"
@@ -17,7 +20,7 @@
       id="btnAgregarTarea"
       type="submit"
       class="btn btn-info justify-content-md-end"
-    >Agregar
+    >Ok
     </button>
     {{#if tasks}}
   </form>
@@ -27,21 +30,33 @@
     class="list-group">
     {{#each tasks}}
       <li class="mb-2">
-        <span>{{tarea}}</span>
-        <form action='/terminada/{{id}}/{{done}}' method="post"  class="form_done">
-          <button type="submit" class="btn-submit">
-            <i class="fas fa-check"></i>
-          </button>
-          {{!-- <button type="submit" class="btn-submit">
-            <i class="fab fa-battle-net"></i>
-          </button> --}}
-        </form>
-        <a 
-        href="/actualizar/{{id}}"
-        class="btn-actualizar"><i class="fas fa-pen"></i></a>
-        <a
-          href="/eliminar/{{@index}}" 
-          class="btn-eliminar"><i class="fas fa-trash"></i></a>
+        <span
+            {{#if done}}
+              style=""
+            {{else}}
+              style="text-decoration: line-through;"
+            {{/if}}
+          >
+            {{tarea}}
+          </span>
+          <form action='/terminada/{{id}}/{{done}}' method="post"  class="form_done">  
+            <button type="submit" class="btn-submit">
+              
+              <i class="fas fa-{{#if done}}check{{else}}times{{/if}}"></i>
+             
+              
+            </button>
+          </form>
+          <a 
+            href="/actualizar/{{id}}"
+            class="btn-actualizar"><i class="fas fa-pen"></i>
+          </a>
+          <a
+            href="/eliminar/{{@index}}" 
+            class="btn-eliminar"
+          >
+            <i class="fas fa-trash"></i>
+        </a>  
       </li>
     {{/each}}
   </ul>
