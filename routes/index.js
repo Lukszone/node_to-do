@@ -4,7 +4,7 @@ import * as fs from "fs";
 import { v4 as uuid4 } from "uuid";
 
 router.get("/", async (req, res) => {
-  let tasks = await fs.readFileSync("./task.json");
+  let tasks = fs.readFileSync("./task.json");
   tasks = await JSON.parse(tasks);
 
   res.render("home", {
@@ -18,7 +18,7 @@ router.post("/", async (req, res) => {
     let tasks = fs.readFileSync("./task.json");
     tasks = JSON.parse(tasks);
 
-    await tasks.tasks.push({ id: uuid4(), tarea: tarea });
+    await tasks.tasks.push({ id: uuid4(), tarea: tarea, done: false });
 
     fs.writeFileSync("./task.json", JSON.stringify(tasks));
 
@@ -48,7 +48,6 @@ router.get("/actualizar/:id", async (req, res) => {
 
 router.post("/actualizar/:id", async (req, res) => {
   let { id } = req.params;
-
   let tasks = fs.readFileSync("./task.json");
   tasks = JSON.parse(tasks);
   tasks = tasks.tasks.map((task) => {
@@ -56,6 +55,7 @@ router.post("/actualizar/:id", async (req, res) => {
       return {
         tarea: req.body.tarea,
         id,
+        done: false,
       };
     }
 
@@ -74,15 +74,48 @@ router.get("/eliminar/:index", async (req, res) => {
   tasks = JSON.parse(tasks);
 
   let taskDelete = {
-    tasks:[
-    ...tasks.tasks.slice(0, index),
-    ...tasks.tasks.slice(index + 1)
-  ],
+    tasks: [...tasks.tasks.slice(0, index), ...tasks.tasks.slice(index + 1)],
   };
-
   fs.writeFileSync("./task.json", JSON.stringify(taskDelete));
   res.redirect("/");
 });
 
+router.post("/terminada/:id/false", async (req, res) => {
+  //let { done } = req.params;
+  let { id } = req.params;
+  let tasks = fs.readFileSync("./task.json");
+  tasks = JSON.parse(tasks);
+
+  let mod_tasks = await tasks.tasks.map((task) => {
+    if (task.id == id) {
+      return {
+        ...task,
+        done: true,
+      };
+    }
+    return task;
+  });
+  fs.writeFileSync("./task.json", JSON.stringify({ tasks: mod_tasks }));
+  res.redirect("/");  
+});
+
+router.post("/terminada/:id/true", async (req, res) => {
+  //let { done } = req.params;
+  let { id } = req.params;
+  let tasks = fs.readFileSync("./task.json");
+  tasks = JSON.parse(tasks);
+
+  let mod_tasks = await tasks.tasks.map((task) => {
+    if (task.id == id) {
+      return {
+        ...task,
+        done: false,
+      };
+    }
+    return task;
+  });
+  fs.writeFileSync("./task.json", JSON.stringify({ tasks: mod_tasks }));
+  res.redirect("/");  
+});
 
 module.exports = router;

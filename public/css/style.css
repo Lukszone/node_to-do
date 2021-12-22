@@ -1,39 +1,72 @@
-body{
-  background: #212529;
+body {
+  background: #313131;
 }
-#super-contender{
-  text-align: center;
-}
-#list-contender{
+
+#list-contender {
   margin: 3em;
 }
-#btnAgregarTarea{
+h2 {
+  text-align: center;
+  font-weight: 500;
+  font-size: 40px;
+}
+label {
+  font-weight: 500;
+  font-size: 17px;
+}
+input{
+  margin: 1px;
+  padding: 1px;
+}
+h1 {
+  text-align: center;
+  padding-top: 100px;
+}
+#btnAgregarTarea {
   padding: 1px 2px;
 }
 
 li {
   list-style: none;
   margin-bottom: 5px;
+  display: grid;
+  grid-template-columns: 1fr 30px 30px 30px;
+  background-color: #313131;
 }
-span{
-  margin-left: 5px;
+span {
+  font-size: 20px;
+  margin-top: 10px;
+  margin-left: 2px;
 }
-a.btn-info {
-  padding: 1px 4px;
-  margin-left: 10px;
-  text-decoration: none;
-  font-size: 1em;
-  border: solid 1px #000;
+a.btn-eliminar {
+  
+  padding: 5px;
+  margin: 5px;
+  background: transparent;
+  border: none;
+  color: #e60000;
 }
-a.btn-danger{
-  padding: 1px;
-  margin-left: 10px;
-  text-decoration: none;
-  font-size: 1em;
-  border:solid 1px #000 ;
+.btn-eliminar:hover {
+  color: #b30000;
 }
-
-.tachado {
-  text-decoration: line-through;
+a.btn-actualizar {
+  padding: 5px;
+  margin: 5px;
+  background:  transparent;
+  border: none;
+  color: #00cc00;
+}
+.btn-actualizar:hover {
+  color: #009900;
+}
+.btn-submit {
+  padding: 5px;
+  margin: 5px;
+  background: transparent;
+  border: none;
+  color: #84dfff;
+}
+.btn-submit:hover {
+  color: #00a8e6;
 }
 

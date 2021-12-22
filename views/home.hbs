@@ -17,26 +17,31 @@
       id="btnAgregarTarea"
       type="submit"
       class="btn btn-info justify-content-md-end"
-    >
-      Ok
+    >Agregar
     </button>
     {{#if tasks}}
   </form>
+  
   <ul 
     id="contenedorTareas"
     class="list-group">
     {{#each tasks}}
       <li class="mb-2">
-        <input
-          type="checkbox"
-          class="form-check-input"/>
         <span>{{tarea}}</span>
-        <a
-          href="/eliminar/{{@index}}" 
-          class="btn-info">x</a>
+        <form action='/terminada/{{id}}/{{done}}' method="post"  class="form_done">
+          <button type="submit" class="btn-submit">
+            <i class="fas fa-check"></i>
+          </button>
+          {{!-- <button type="submit" class="btn-submit">
+            <i class="fab fa-battle-net"></i>
+          </button> --}}
+        </form>
         <a 
         href="/actualizar/{{id}}"
-        class="btn-danger">Editar</a>
+        class="btn-actualizar"><i class="fas fa-pen"></i></a>
+        <a
+          href="/eliminar/{{@index}}" 
+          class="btn-eliminar"><i class="fas fa-trash"></i></a>
       </li>
     {{/each}}
   </ul>
