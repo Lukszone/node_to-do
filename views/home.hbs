@@ -2,7 +2,7 @@
   class="p-4 rounded-0 bg-dark text-white"
   id="list-contender">
   <h2>Lista</h2>
-  <form action="/" method="POST">
+  <form action="/inicio" method="POST">
     <label 
       for="tarea">Agregar nueva tarea: 
     </label>
@@ -33,9 +33,9 @@
       <li class="mb-2">
         <span
             {{#if done}}
-              style=""
+              style="text-decoration:line-through;"
             {{else}}
-              style="text-decoration: line-through;"
+              style=""
             {{/if}}
           >
             {{tarea}}
@@ -44,7 +44,7 @@
           action='/terminada/{{id}}/{{done}}'
           method="post"  class="form_done">  
           <button type="submit" class="btn-submit">    
-            <i class="fas fa-{{#if done}}check{{else}}times{{/if}}"></i>
+            <i class="fas fa-{{#if done}}times{{else}}check{{/if}}"></i>
           </button>
         </form>
         <a 

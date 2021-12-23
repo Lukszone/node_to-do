@@ -1,0 +1,31 @@
+<div class="p-4 rounded-0 bg-dark text-white form_div ">
+  <h3>Login</h3>
+  <form action="/login" method="POST">
+    <input 
+      type="email" 
+      name="email"
+      placeholder="user@example.com"
+      class="email_input" 
+      required=""/>
+    <input 
+      type="password"
+      name="password" 
+      placeholder="Password"
+      class="password_input" 
+      required=""/><br>
+    <input 
+      type="submit" 
+      value="Ingresar"
+      class="submit_input "/>
+  </form>
+  {{#if error}}
+  <p>{{message}}</p>
+  {{/if}}
+  
+  <p class="p_cuenta">
+    No tienes una cuenta?<br>
+    <a 
+      href="/registro">Registrate
+    </a>
+  </p>
+</div>

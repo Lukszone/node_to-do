@@ -1,0 +1,22 @@
+<div class="text-white">
+  <form 
+    action="/registro"
+    method="post"
+  >
+    <div>
+      <label>Email</label>
+      <input 
+        type="email" 
+        name="email" 
+        required />
+          {{#if error}}
+            <p>{{message}}</p>
+          {{/if}}
+    </div>
+    <div>
+      <label>Password</label>
+      <input type="password" name="password" required />
+    </div>
+    <input type="submit" value="Registrar">
+  </form>
+</div>
