@@ -2,10 +2,27 @@ import express from "express";
 import { engine } from "express-handlebars";
 import path from "path";
 import morgan from "morgan";
+import dotenv from 'dotenv';
+var session = require('express-session')
+var cookieParser = require('cookie-parser')
+
+
+dotenv.config()
+
 
 const router = require("./routes");
 
 const app = express();
+
+app.use(cookieParser());
+app.use(session({
+  secret: process.env.SESSION_SECRET,
+  resave: false,
+  saveUninitialized: true,
+  cookie: { 
+    maxAge: 1000 * 60 * 60 * 24
+  }
+}))
 
 app.engine(
   '.hbs', 
