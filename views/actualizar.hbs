@@ -1,19 +1,17 @@
 <div class="">
-  <h2>Editar Tarea</h2>
-  <form
-    action="/actualizar/{{task.id}}"
-    method="POST">
-    <input
-      type="text"
-      name="tarea"
-      placeholder="Edita la Tarea"
-      value="{{task.tarea}}"
-      class=""
-    />
-    <button
-     type="submit"
-     class=""
-    >Actualizar
-    </button>
-  </form>
+  <h2 class="link-primary text-center">Editar Tarea</h2>
+  <div class="mx-5 p-4">
+    <form action="/actualizar/{{task.id}}" method="POST">
+      <input
+        type="text"
+        name="tarea"
+        autocomplete="off"
+        placeholder="Edita la Tarea"
+        value="{{task.tarea}}"
+        class="form-control"
+      />
+      <button type="submit" class="btn btn-outline-primary float-end">Actualizar
+      </button>
+    </form>
+  </div>
 </div>

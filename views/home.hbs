@@ -1,36 +1,34 @@
-<div 
-  class="">
-  <h2>Lista</h2>
+<div>
+  <h1 class="link-primary text-center">Lista</h1>
   <form action="/inicio" method="POST">
-    <label 
-      for="tarea">Agregar nueva tarea: 
-    </label>
-    <input
-      type="text"
-      name="tarea"
-      id="tarea"
-      placeholder="Escribe una Tarea"
-      class=""
-      required=""
-      minlength="1"
-      maxlength="300"
-      autocomplete="off"
-    />
-    <button
-      id="btnAgregarTarea"
-      type="submit"
-      class=""
-    >Ok
-    </button>
-    {{#if tasks}}
+    <div class="p-4 mx-5 text-center">
+      <label 
+        for="tarea" class="pb-4">Agregar nueva tarea: 
+      </label>
+      <input
+        type="text"
+        name="tarea"
+        id="tarea"
+        placeholder="Escribe una tarea"
+        class=" form-control"
+        required=""
+        minlength="1"
+        maxlength="300"
+        autocomplete="off"
+      />
+      <button
+        type="submit"
+        class="btn btn-primary float-end"
+      >Agregar
+      </button>
+    </div>
   </form>
-  
-  <ul 
-    id="contenedorTareas"
-    class="list-group">
-    {{#each tasks}}
-      <li class="">
-        <span
+  {{#if tasks}}  
+    <div class="container p-2 mt-4 bg-primary bg-opacity-10">
+      {{#each tasks}}
+      <div class="row">
+        <div class="col-8 ">
+          <span class="m-1 p-1 text-muted"
             {{#if done}}
               style="text-decoration:line-through;"
             {{else}}
@@ -38,34 +36,40 @@
             {{/if}}
           >
             {{tarea}}
-        </span>
-        <form 
-          action='/terminada/{{id}}/{{done}}'
-          method="post"  class="form_done">  
-          <button type="submit" class="btn-submit">    
-            <i class="fas fa-{{#if done}}times{{else}}check{{/if}}"></i>
-          </button>
-        </form>
-        <a 
-          href="/actualizar/{{id}}"
-          class="btn-actualizar"
-        >
-          <i class="fas fa-pen"></i>
-        </a>
-        <a
-          href="/eliminar/{{@index}}" 
-          class="btn-eliminar"
-        >
-          <i class="fas fa-trash"></i>
-        </a>  
-      </li>
-    {{/each}}
-  </ul>
+          </span>
+        </div>
+        <div class="col">
+           <a
+            href="/actualizar/{{id}}"
+            class="m-1 p-1 btn-primary border float-end"
+          >
+            <i class="fas fa-pen"></i>
+          </a>
+        </div>
+        <div class="col">
+          <a
+            href="/eliminar/{{@index}}" 
+            class="m-1 p-1 btn-primary border float-end"
+          >
+            <i class="fas fa-trash"></i>
+          </a>
+        </div>
+        <div class="col">
+          <form 
+              action='/terminada/{{id}}/{{done}}'
+              method="post"  class="">  
+            <button type="submit" class="m-1 p-1 btn-primary float-end">    
+              <i class="fas fa-{{#if done}}times-circle{{else}}check{{/if}}"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+  </div>  
 </div>
 {{else}}
-  <div class="h-50 d-flex aling-items-center justify-content-center">
-    <div class="text-center text-white">
-      <h1>No hay tareas</h1>
-    </div>
+  <div class="m-5 text-center">
+      <h1 class="link-primary">No hay tareas</h1>
   </div>
 {{/if}}
