@@ -1,6 +1,5 @@
 <div 
-  class="p-4 rounded-0 bg-dark text-white"
-  id="list-contender">
+  class="">
   <h2>Lista</h2>
   <form action="/inicio" method="POST">
     <label 
@@ -11,7 +10,7 @@
       name="tarea"
       id="tarea"
       placeholder="Escribe una Tarea"
-      class="rounded-0 bg-black text-white"
+      class=""
       required=""
       minlength="1"
       maxlength="300"
@@ -20,7 +19,7 @@
     <button
       id="btnAgregarTarea"
       type="submit"
-      class="btn btn-info justify-content-md-end"
+      class=""
     >Ok
     </button>
     {{#if tasks}}
@@ -30,7 +29,7 @@
     id="contenedorTareas"
     class="list-group">
     {{#each tasks}}
-      <li class="mb-2">
+      <li class="">
         <span
             {{#if done}}
               style="text-decoration:line-through;"

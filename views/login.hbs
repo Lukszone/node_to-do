@@ -1,28 +1,50 @@
-<div class="p-4 rounded-0 bg-dark text-white form_div ">
-  <h3>Login</h3>
+<div class="text-center">
+  <h3 class="link-primary">Login</h3>
   <form action="/login" method="POST">
-    <input 
-      type="email" 
-      name="email"
-      placeholder="user@example.com"
-      class="email_input" 
-      required=""/>
-    <input 
-      type="password"
-      name="password" 
-      placeholder="Password"
-      class="password_input" 
-      required=""/><br>
-    <input 
-      type="submit" 
-      value="Ingresar"
-      class="submit_input "/>
+      <div class="pt-4 px-5 row">
+        <div class="mb-3 row">
+          <label 
+            for="email" 
+            class="col-sm-2 col-form-label fw-light"
+          >Email</label>
+          <div class="col-sm-10">
+            <input 
+              type="email" 
+              name="email"
+              id="email"
+              placeholder="user@example.com"
+              class="form-control" 
+              required=""/>
+          </div>
+        </div>
+        <div class="mb-3 row">
+          <label 
+            for="password"
+            class="col-sm-2 col-form-label fw-light"
+          >Password</label>
+          <div class="col-sm-10">
+            <input 
+              type="password"
+              name="password"
+              id="password" 
+              placeholder="Password"
+              class="form-control" 
+              required=""/>
+          </div>
+        </div>
+        <div>
+          <input 
+            type="submit" 
+            value="Ingresar"
+            class="btn btn-outline-primary float-end mx-4"/>
+        </div>
+      </div>
   </form>
   {{#if error}}
   <p>{{message}}</p>
   {{/if}}
   
-  <p class="p_cuenta">
+  <p class="fw-light">
     No tienes una cuenta?<br>
     <a 
       href="/registro">Registrate
