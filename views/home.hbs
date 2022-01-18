@@ -1,6 +1,6 @@
 <div>
   <h1 class="link-primary text-center">Lista</h1>
-  <form action="/inicio" method="POST">
+  <form action="/inicio" method="POST" class="form-inicio">
     <div class="p-4 mx-5 text-center">
       <label 
         for="tarea" class="pb-4">Agregar nueva tarea: 
@@ -18,7 +18,7 @@
       />
       <button
         type="submit"
-        class="btn btn-primary float-end"
+        class="btn-agg btn btn-primary float-end"
       >Agregar
       </button>
     </div>
@@ -26,8 +26,8 @@
   {{#if tasks}}  
     <div class="container p-2 mt-4 bg-primary bg-opacity-10">
       {{#each tasks}}
-      <div class="row">
-        <div class="col-8 ">
+      <div class="row nowrap-container">
+        <div class="col-6 ">
           <span class="m-1 p-1 text-muted"
             {{#if done}}
               style="text-decoration:line-through;"
